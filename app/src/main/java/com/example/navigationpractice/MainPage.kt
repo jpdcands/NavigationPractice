@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -31,7 +32,7 @@ fun MainPage(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Main Page",
+            text = "MAIN PAGE",
             style = TextStyle(fontSize = 36.sp, fontWeight = FontWeight.Bold)
         )
         Spacer(modifier = Modifier.height(16.dp)) // Optional: Spacer for some space between Text and Button
