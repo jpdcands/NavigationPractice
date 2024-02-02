@@ -1,20 +1,24 @@
 package com.example.navigationpractice
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModel
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun Exercise1Page() {
-
-    var selectedOption by rememberSaveable { mutableStateOf("Option 1") }
-    val options = listOf("Set 1", "Set 2", "Set 3", "Set 4")
+fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = viewModel()) {
+    // Using the ViewModel's state
+    val selectedOption by viewModel.selectedOption
+    val options = viewModel.options
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -29,18 +33,28 @@ fun Exercise1Page() {
         ) {
             options.forEach { option ->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) { // Use Column for vertical arrangement
-                    Text(text = option, modifier = Modifier.align(Alignment.CenterHorizontally)) // Center the text above the RadioButton
+                    Text(
+                        text = option,
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    ) // Center the text above the RadioButton
                     RadioButton(
                         selected = selectedOption == option,
-                        onClick = { selectedOption = option } )
+                        onClick = { viewModel.selectedOption.value  = option }
+                    )
+
+                    }
                 }
             }
+        Button(onClick = { navController.navigate("mainPage") }) {
+            Text("Back to Main Page")
         }
     }
 }
 
-        @Preview(showBackground = true)
-        @Composable
-        fun PreviewExercise1Page() {
-            Exercise1Page()
-        }
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewExercise1Page() {
+    val navController = rememberNavController()
+    Exercise1Page(navController)
+}

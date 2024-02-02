@@ -31,10 +31,10 @@ fun MyApp() {
     val navController = rememberNavController()
 
     MaterialTheme {
-        NavHost(navController = navController, startDestination = "main") {
-            composable("main") { MainPage(navController) }
+        NavHost(navController = navController, startDestination = "mainPage") {
+            composable("mainPage") { MainPage(navController) }
             composable("exercise") { ExercisePage(navController) }
-            composable("exercise1") { Exercise1Page() }
+            composable("exercise1") { Exercise1Page(navController) }
         }
     }
 }
