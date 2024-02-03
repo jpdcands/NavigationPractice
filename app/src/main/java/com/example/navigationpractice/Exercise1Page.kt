@@ -42,9 +42,9 @@ fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = v
                         onClick = { viewModel.selectedOption.value  = option }
                     )
 
-                    }
                 }
             }
+        }
         Button(onClick = { navController.navigate("mainPage") }) {
             Text("Back to Main Page")
         }
