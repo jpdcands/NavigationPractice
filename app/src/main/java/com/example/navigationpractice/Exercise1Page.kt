@@ -8,6 +8,7 @@ import androidx.compose.runtime.*
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.ViewModel
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
@@ -25,7 +26,7 @@ fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = v
         verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Exercise #1 Page", fontSize = 30.sp)
+        Text(text = "Exercise #1 Page", fontSize = 30.sp, fontWeight = FontWeight.Bold)
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -39,7 +40,7 @@ fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = v
                     ) // Center the text above the RadioButton
                     RadioButton(
                         selected = selectedOption == option,
-                        onClick = { viewModel.selectedOption.value  = option }
+                        onClick = { viewModel.updateSelectedOption(option) }
                     )
 
                 }
