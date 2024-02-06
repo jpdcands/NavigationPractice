@@ -29,7 +29,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp() {
     val navController = rememberNavController()
-
     MaterialTheme {
         NavHost(navController = navController, startDestination = "mainPage") {
             composable("mainPage") { MainPage(navController) }

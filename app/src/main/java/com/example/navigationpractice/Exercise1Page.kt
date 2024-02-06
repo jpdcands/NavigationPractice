@@ -11,14 +11,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.ViewModel
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = viewModel()) {
-    // Using the ViewModel's state
-    val selectedOption by viewModel.selectedOption
+    // Observe selectedOption state outside of RadioButton
+    val selectedOption = viewModel.selectedOption.value
+
     val options = viewModel.options
 
     Column(
@@ -42,16 +44,23 @@ fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = v
                         selected = selectedOption == option,
                         onClick = { viewModel.updateSelectedOption(option) }
                     )
-
                 }
             }
         }
-        Button(onClick = { navController.navigate("mainPage") }) {
-            Text("Back to Main Page")
+        Column( // New Column for buttons
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Button(onClick = { navController.navigate("mainPage") }) {
+                Text("Back to Main Page")
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            // Space between buttons
+            Button(onClick = { navController.navigate("exercise") }) {
+                Text("Back to Exercise Page")
+            }
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable
