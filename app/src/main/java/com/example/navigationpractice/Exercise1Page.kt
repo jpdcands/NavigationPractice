@@ -58,6 +58,11 @@ fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = v
             Button(onClick = { navController.navigate("exercise") }) {
                 Text("Back to Exercise Page")
             }
+            Spacer(modifier = Modifier.height(8.dp))
+            // Space between buttons
+            Button(onClick = { navController.navigate("exercise") }) {
+                Text("Clear All Sets")
+            }
         }
     }
 }
