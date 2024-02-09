@@ -48,5 +48,6 @@ fun MainPage(navController: NavController, viewModel: ExerciseViewModel) {
 @Composable
 fun MainPagePreview() {
     val navController = rememberNavController()
+  //  MainPage(navController, viewModel)
 }
 
