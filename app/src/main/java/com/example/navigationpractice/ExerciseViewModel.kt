@@ -26,6 +26,10 @@ class ExerciseViewModel(private val state: SavedStateHandle) : ViewModel() {
         selectedOption.value = option
         state[SELECTED_OPTION_KEY] = option  // Save the selected option in SavedStateHandle
     }
+
+    fun clearSelectedOption() {
+        selectedOption.value = null // Resetting to null or to a default value indicating no selection
+    }
 }
 
 

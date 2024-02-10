@@ -60,7 +60,10 @@ fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = v
             }
             Spacer(modifier = Modifier.height(8.dp))
             // Space between buttons
-            Button(onClick = { navController.navigate("exercise") }) {
+            Button(onClick = {
+                viewModel.clearSelectedOption()
+                navController.navigate("exercise")
+            }) {
                 Text("Clear All Sets")
             }
         }
