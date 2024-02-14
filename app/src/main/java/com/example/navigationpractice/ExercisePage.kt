@@ -29,7 +29,7 @@ fun ExercisePage(navController: NavController, viewModel: ExerciseViewModel = vi
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp), // Apply the padding from the Scaffold
+            .padding(16.dp),
         verticalArrangement = Arrangement.Top,// Align items to the top
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

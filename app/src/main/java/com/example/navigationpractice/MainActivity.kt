@@ -25,11 +25,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-enum class MyRouteApp() {
+/*enum class MyRouteApp() {
     MainPage,
     ExercisePage,
     Exercise1Page
-}
+}*/
 
 @Composable
 fun MyApp(viewModel: ExerciseViewModel) {
@@ -37,6 +37,7 @@ fun MyApp(viewModel: ExerciseViewModel) {
     val navController: NavHostController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "mainPage") {
+
         composable("mainPage") {
             MainPage(navController, viewModel) }
         composable("exercise") {

@@ -32,7 +32,6 @@ fun Exercise1Page(navController: NavController, viewModel: ExerciseViewModel = v
 
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             options.forEach { option ->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) { // Use Column for vertical arrangement
